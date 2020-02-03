@@ -10400,3 +10400,4 @@ pkg/mod/gopkg.in/yaml.v2@v2.2.1/yaml.go
 pkg/mod/gopkg.in/yaml.v2@v2.2.1/yamlh.go
 pkg/mod/gopkg.in/yaml.v2@v2.2.1/yamlprivateh.go
 pkg/sumdb/sum.golang.org/latest
+pkg/darwin_amd64/02-core-elements/packages/util.a

@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+// MAX a max value
 const MAX int = 10
 
 func main() {

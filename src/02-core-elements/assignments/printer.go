@@ -16,4 +16,27 @@ func main() {
 	}
 	fmt.Println(content)
 	fmt.Printf("Total calculated was = %d", result)
+
+	str := `This is a
+multiline
+string.`
+
+	fmt.Println(str)
+
+	fmt.Println("Assignment Operators")
+	x := 0
+
+	x = 5
+	fmt.Printf("x =5: %v\n", x)
+	x += 5
+	fmt.Printf("x +=5: %v\n", x)
+	x -= 5
+	fmt.Printf("x -=5: %v\n", x)
+	x *= 5
+	fmt.Printf("x *=5: %v\n", x)
+	x /= 5
+	fmt.Printf("x /=5: %v\n", x)
+	x %= 5
+	fmt.Println("x %=5:", x)
+
 }
