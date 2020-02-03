@@ -1,0 +1,16 @@
+{
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 1,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "git.ignoreLegacyWarning": true,
+    "go.inferGopath": true,
+    "terminal.integrated.env.linux": {
+        "GOPATH": "${command:go.gopath}"
+    }
+}
