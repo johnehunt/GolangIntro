@@ -16,4 +16,9 @@ func main() {
 	*p++           // Increments what P points to not p
 	fmt.Println(x) // will now print 3
 
+	q := new(int) // Creates a pointer to an unnamed int variable
+	fmt.Println(*q)
+	*q = 2
+	fmt.Println(*q)
+
 }
