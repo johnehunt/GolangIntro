@@ -32,5 +32,14 @@ func main() {
 		fmt.Println("Capital of United States is not present")
 	}
 
+	/* delete an entry */
+	delete(countryCapitalMap, "France")
+	fmt.Println("Entry for France is deleted")
+
+	/* print map */
+	for country := range countryCapitalMap {
+		fmt.Println("Capital of", country, "is", countryCapitalMap[country])
+	}
+
 	fmt.Println("Done")
 }
