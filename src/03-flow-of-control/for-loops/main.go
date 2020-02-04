@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+	fmt.Println("Starting")
+
 	// Basic For loop
 	for i := 0; i < 5; i++ {
 		fmt.Printf("value of i: %v\n", i)
@@ -36,4 +38,6 @@ func main() {
 	for i = 0; i < 4; i++ {
 		fmt.Printf("value of i: %v\n", i)
 	}
+
+	fmt.Println("Done")
 }
