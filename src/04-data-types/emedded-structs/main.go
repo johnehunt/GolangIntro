@@ -5,45 +5,46 @@ import (
 )
 
 type Point struct {
-	x, y int
+	X, Y int
 }
 
 type Circle struct {
-	center Point
-	radius int
+	Centre Point
+	Radius int
 }
 
 type Wheel struct {
 	circle Circle
-	spokes int
+	Spokes int
 }
 
-// Strutcs with anonymous fields
+// Structs with anonymous fields
+
 type Circle2 struct {
 	Point
-	radius int
+	Radius int
 }
 
 type Wheel2 struct {
 	Circle2
-	spokes int
+	Spokes int
 }
 
 func main() {
 	fmt.Println("Starting")
 
 	var wheel1 Wheel
-	wheel1.circle.center.x = 10
-	wheel1.circle.center.y = 10
-	wheel1.circle.radius = 5
-	wheel1.spokes = 10
+	wheel1.circle.Centre.X = 10
+	wheel1.circle.Centre.Y = 10
+	wheel1.circle.Radius = 5
+	wheel1.Spokes = 10
 	fmt.Println(wheel1)
 
 	var wheel2 Wheel2
-	wheel2.x = 10
-	wheel2.y = 10
-	wheel2.radius = 5
-	wheel2.spokes = 10
+	wheel2.X = 10
+	wheel2.Y = 10
+	wheel2.Radius = 5
+	wheel2.Spokes = 10
 	fmt.Println(wheel2)
 
 	fmt.Println("Done")

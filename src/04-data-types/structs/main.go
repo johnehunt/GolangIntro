@@ -6,47 +6,52 @@ import (
 
 // Book structure
 type Book struct {
-	title   string
-	author  string
-	subject string
-	isbn    int
+	Title   string
+	Author  string
+	Subject string
+	ISBN    int
 }
 
 func main() {
 	fmt.Println("Starting")
 
-	var Book1 Book /* Declare Book1 of type Book */
-	var Book2 Book /* Declare Book2 of type Book */
+	var book1 Book /* Declare Book1 of type Book */
+	var book2 Book /* Declare Book2 of type Book */
 
 	/* book 1 specification */
-	Book1.title = "Go is the Way"
-	Book1.author = "John Hunt"
-	Book1.subject = "Go Programming"
-	Book1.isbn = 6495407
+	book1.Title = "Go is the Way"
+	book1.Author = "John Hunt"
+	book1.Subject = "Go Programming"
+	book1.ISBN = 6495407
 
 	/* book 2 specification */
-	Book2.title = "Python Introduction"
-	Book2.author = "Denise Jonesi"
-	Book2.subject = "Python Tutorial"
-	Book2.isbn = 6495700
+	book2.Title = "Python Introduction"
+	book2.Author = "Denise Jonesi"
+	book2.Subject = "Python Tutorial"
+	book2.ISBN = 6495700
+	fmt.Printf("book3: %v\n", book2)
 
 	/* print Book1 info */
-	fmt.Printf("Book 1 title : %s\n", Book1.title)
-	fmt.Printf("Book 1 author : %s\n", Book1.author)
-	fmt.Printf("Book 1 subject : %s\n", Book1.subject)
-	fmt.Printf("Book 1 book_id : %d\n", Book1.isbn)
+	fmt.Printf("Book 1 Title : %s\n", book1.Title)
+	fmt.Printf("Book 1 Author : %s\n", book1.Author)
+	fmt.Printf("Book 1 Subject : %s\n", book1.Subject)
+	fmt.Printf("Book 1 book_id : %d\n", book1.ISBN)
 
 	/* print Book2 info */
-	fmt.Printf("Book 2 title : %s\n", Book2.title)
-	fmt.Printf("Book 2 author : %s\n", Book2.author)
-	fmt.Printf("Book 2 subject : %s\n", Book2.subject)
-	fmt.Printf("Book 2 book_id : %d\n", Book2.isbn)
+	fmt.Printf("Book 2 Title : %s\n", book2.Title)
+	fmt.Printf("Book 2 Author : %s\n", book2.Author)
+	fmt.Printf("Book 2 Subject : %s\n", book2.Subject)
+	fmt.Printf("Book 2 book_id : %d\n", book2.ISBN)
+
+	// Struct Literal
+	var book3 = Book{"JavaScript Uncovered", "Phoebe", "Technical", 1234}
+	fmt.Printf("book3: %v\n", book3)
 
 	// Pointers
 
 	var structPointer *Book
-	structPointer = &Book1
-	fmt.Println("structPointer.title:", structPointer.title)
+	structPointer = &book1
+	fmt.Println("structPointer.Title:", structPointer.Title)
 
 	fmt.Println("Done")
 }
