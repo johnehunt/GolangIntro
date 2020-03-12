@@ -25,7 +25,12 @@ func main() {
 	var v2 interface{} = "John"
 	fmt.Println("v2:", v2) // Its "John"
 
+	// Can obtain value from v2 using type assertion
+	// type assertion provides access to an interface value's
+	// underlying concrete value.
 	fmt.Println("v2.(string):", v2.(string))
+	// Above 'asserts' that the interface value v2 holds the
+	// concrete type string and returns that value
 
 	// OK is a flag to indicate whether value was of given type
 	value, ok := v2.(float64)
