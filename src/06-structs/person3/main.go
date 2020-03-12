@@ -14,6 +14,13 @@ type Person struct {
 func newPerson(name string, age int) *Person {
 	p := Person{name, age}
 	return &p
+	// alternative use - new keyword can be used
+	// to create a new struct. It returns a pointer
+	// to the newly created struct
+	// p := new(Person)
+	// p.name = name
+	// p.age = age
+	// return p
 }
 
 func main() {
