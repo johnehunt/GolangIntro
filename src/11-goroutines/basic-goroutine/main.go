@@ -10,6 +10,7 @@ func printer(msg string) {
 		fmt.Print(msg)
 	}
 }
+
 func main() {
 	fmt.Println("Starting")
 
