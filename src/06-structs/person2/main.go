@@ -22,7 +22,13 @@ func printPerson2(person *Person) {
 }
 
 func main() {
+	// Creating and initializing a struct
+	// with a 'struct literal'
 	var p1 = Person{name: "John", age: 21}
 	printPerson(p1)
 	printPerson2(&p1)
+
+	// If we now the position of the fields don;t need to give them
+	var p2 = Person{"Denise", 25}
+	printPerson(p2)
 }
