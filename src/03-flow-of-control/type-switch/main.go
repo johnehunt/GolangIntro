@@ -9,6 +9,8 @@ func main() {
 
 	var x interface{}
 
+	// Type switch statement - used to compare types in
+	// an emtpy interface
 	switch x.(type) {
 	case nil:
 		fmt.Println("x is nil")
