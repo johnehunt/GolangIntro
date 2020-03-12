@@ -9,10 +9,14 @@ type Person struct {
 }
 
 func main() {
-	var p1 Person /* Declares p1 of type Person */
+
+	// Declares p1 to be of type Person and
+	// initialises the Person struct allocating memory as required
+	var p1 Person
 	p1.name = "John"
 	p1.age = 21
 
+	// Can access and update fields using dot notation
 	var p2 Person
 	p2.name = "Denise"
 	p2.age = 25
@@ -27,6 +31,14 @@ func main() {
 
 	var p3 = Person{name: "Phoebe", age: 21}
 	fmt.Printf("Person p3 %v\n", p3)
+
+	fmt.Println("----------------")
+
+	fmt.Println("Compare structs")
+	// Can compare structs with comparison operators
+	// such as == and !=
+	fmt.Println("p1 == p2:", p1 == p2) // false
+	fmt.Println("p1 != p2:", p1 != p2) // false
 
 	fmt.Println("----------------")
 
