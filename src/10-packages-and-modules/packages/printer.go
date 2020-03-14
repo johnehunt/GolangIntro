@@ -1,9 +1,12 @@
 package main
 
 import (
-	"02-core-elements/packages/util"
+	"10-packages-and-modules/packages/util"
 	"fmt"
 )
+
+// Can give import an alias
+// import u "10-packages-and-modules/packages/util"
 
 func main() {
 	fmt.Printf("Max value is %d\n", util.MAX)
