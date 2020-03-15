@@ -1,7 +1,7 @@
 package main
 
 import (
-	"10-packages-and-modules/modules/calc"
+	"10-packages-and-modules/packages/calc"
 	"fmt"
 )
 

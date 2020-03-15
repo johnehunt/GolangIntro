@@ -9,7 +9,7 @@
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "git.ignoreLegacyWarning": true,
-    "go.inferGopath": true,
+    "go.inferGopath": false,
     "terminal.integrated.env.linux": {
         "GOPATH": "${command:go.gopath}"
     }
