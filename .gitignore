@@ -24,3 +24,5 @@ hs_err_pid*
 pkg
 bin
 pkg/darwin_amd64
+pkg/darwin_amd64/10-packages-and-modules/packages/calc.a
+pkg/darwin_amd64/10-packages-and-modules/packages/util.a
