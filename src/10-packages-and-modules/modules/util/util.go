@@ -27,10 +27,12 @@ const MAX = 100
 // Freezing used to represent the value for water to freeze
 const Freezing Celsius = 0.0
 
+// Hello function
 func Hello() string {
 	return quote.Hello()
 }
 
+// Proverb function
 func Proverb() string {
 	return quoteV3.Concurrency()
 }

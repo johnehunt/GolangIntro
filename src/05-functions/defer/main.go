@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func max(num1, num2 int) {
+// Max compares two number and returns max
+func Max(num1, num2 int) {
 	fmt.Printf("max(%v, %v)\n", num1, num2)
 	var result int
 
@@ -20,7 +21,7 @@ func main() {
 	// defers the execution of a
 	// function until the surrounding function
 	// returns (in this case until after mian() completes
-	defer max(2, 3)
+	defer Max(2, 3)
 
 	fmt.Println("Done")
 }

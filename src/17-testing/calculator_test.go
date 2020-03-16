@@ -4,7 +4,7 @@ import "testing"
 
 // TestCalcAddOneAndOne checks addition
 func TestCalcAddOneAndOne(t *testing.T) {
-	v, err := calculator("+", 1, 1)
+	v, err := Calculator("+", 1, 1)
 	if v != 2 || err != nil {
 		t.Error("Expected 2, got ", v)
 	}
@@ -27,7 +27,7 @@ func TestCalcParametricTest(t *testing.T) {
 	}
 
 	for _, data := range tests {
-		v, err := calculator(data.operation, data.xvalue, data.yvalue)
+		v, err := Calculator(data.operation, data.xvalue, data.yvalue)
 		if v != data.result || err != nil {
 			t.Error("Expected", data.result, ", got ", v)
 		}

@@ -13,7 +13,8 @@ func (e *InvalidArgumentError) Error() string {
 	return fmt.Sprintf("%d - %s", e.argument, e.problem)
 }
 
-func calculator(operation string, x int, y int) (int, error) {
+// Calculator function
+func Calculator(operation string, x int, y int) (int, error) {
 	var result = 0
 	switch operation {
 	case "+":

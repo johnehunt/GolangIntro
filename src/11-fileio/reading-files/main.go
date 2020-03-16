@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func check(e error) {
+func checkForError(e error) {
 	if e != nil {
 		panic(e)
 	}
@@ -18,14 +18,14 @@ func main() {
 
 	// Read contents of file into memory
 	dat, err := ioutil.ReadFile("input.txt")
-	check(err)
+	checkForError(err)
 	fmt.Println(string(dat))
 
 	fmt.Println("-------------")
 
 	// For more control - read a line at a time
 	f, err := os.Open("input.txt")
-	check(err)
+	checkForError(err)
 
 	bufferedReader := bufio.NewReader(f)
 	for {

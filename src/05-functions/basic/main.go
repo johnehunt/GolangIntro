@@ -2,14 +2,17 @@ package main
 
 import "fmt"
 
-// Functionw without a return result
-func printResult(i int, j int) {
+// PrintResult Functionw without a return result
+// Convention is the public functions start with a capital letter
+// local functions have an initial lowercase letter
+// Public functions shoudl have a comment starting with the name of the function
+func PrintResult(i int, j int) {
 	result := i + j
 	fmt.Printf("%d + %d = %d\n", i, j, result)
 }
 
-/* function returning the max between two numbers */
-func max(num1, num2 int) int {
+// Max function returning the max between two numbers
+func Max(num1, num2 int) int {
 	/* local variable declaration */
 	var result int
 
@@ -24,9 +27,9 @@ func max(num1, num2 int) int {
 func main() {
 	fmt.Println("Starting")
 
-	printResult(2, 3)
+	PrintResult(2, 3)
 
-	fmt.Println("max(2, 3):", max(2, 3))
+	fmt.Println("Max(2, 3):", Max(2, 3))
 
 	fmt.Println("Done")
 }

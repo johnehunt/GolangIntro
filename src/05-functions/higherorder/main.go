@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func processor(x int, func1 func(int) int) int {
+// Processor applies a function to an int
+func Processor(x int, func1 func(int) int) int {
 	return func1(x)
 }
 
@@ -13,7 +14,7 @@ func main() {
 		return i * i
 	}
 
-	result := processor(4, f1)
+	result := Processor(4, f1)
 	fmt.Println("result:", result)
 
 	fmt.Println("Done")

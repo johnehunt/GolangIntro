@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 /* function definition to swap the values */
-func swap(x *int, y *int) {
+func Swap(x *int, y *int) {
 	var temp int
 	temp = *x /* save the value at address x */
 	*x = *y   /* put y into x */
@@ -19,7 +19,7 @@ func main() {
 
 	fmt.Printf("Before Swap\na is %d, b is %d\n", a, b)
 
-	swap(&a, &b)
+	Swap(&a, &b)
 
 	fmt.Printf("After Swap\na is %d, b os %d\n", a, b)
 

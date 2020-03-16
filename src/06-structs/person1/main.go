@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 // Person struct has fields name and age
+// Public structs have an initial capital letter
+// and a comment
 type Person struct {
 	name string
 	age  int
