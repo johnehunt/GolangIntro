@@ -20,7 +20,7 @@ the patch version is 2. Let's walk through a couple minor version upgrades.
 go list -m all
 10-packages-and-modules/modules
 
-Then add in util dpeendecnies on 
+Then add in util dependecnies on 
     "rsc.io/quote"
     quoteV3 "rsc.io/quote/v3"
 
