@@ -10,6 +10,12 @@ type Server struct{}
 
 // ServerHTTP - implements the Handler interface
 func (s *Server) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
+
+	fmt.Printf("req.Method: %s \n", req.Method)
+	fmt.Printf("req.URL: %s \n", req.URL)
+	fmt.Printf("req.Header: %s \n", req.Header)
+	fmt.Printf("req.Body: %s \n", req.Body)
+
 	resp.WriteHeader(http.StatusOK)
 	resp.Header().Set("Content-Type", "application/json")
 	resp.Write([]byte(`{"message": "hello world"}`))
