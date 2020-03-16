@@ -10,9 +10,24 @@ type Server struct{}
 
 // ServerHTTP - implements the Handler interface
 func (s *Server) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
-	resp.WriteHeader(http.StatusOK)
 	resp.Header().Set("Content-Type", "application/json")
-	resp.Write([]byte(`{"message": "hello world"}`))
+	switch req.Method {
+	case "GET":
+		resp.WriteHeader(http.StatusOK)
+		resp.Write([]byte(`{"message": "get called"}`))
+	case "POST":
+		resp.WriteHeader(http.StatusCreated)
+		resp.Write([]byte(`{"message": "post called"}`))
+	case "PUT":
+		resp.WriteHeader(http.StatusAccepted)
+		resp.Write([]byte(`{"message": "put called"}`))
+	case "DELETE":
+		resp.WriteHeader(http.StatusOK)
+		resp.Write([]byte(`{"message": "delete called"}`))
+	default:
+		resp.WriteHeader(http.StatusNotFound)
+		resp.Write([]byte(`{"message": "not found"}`))
+	}
 }
 
 func main() {
