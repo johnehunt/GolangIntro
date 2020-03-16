@@ -9,8 +9,13 @@
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "git.ignoreLegacyWarning": true,
+    "go.formatOnSave": true,
     "go.inferGopath": false,
+    "go.gopath": "/Users/Shared/workspaces/visualstudiocode/GolangIntro",
+    "go.goroot": "/usr/local/go",
+    "go.formatTool": "goformat",
+    "go.autocompleteUnimportedPackages": true,
     "terminal.integrated.env.linux": {
-        "GOPATH": "${command:go.gopath}"
+        "GOPATH": "/Users/Shared/workspaces/visualstudiocode/GolangIntro"
     }
 }
