@@ -24,6 +24,12 @@ func main() {
 	var s3 = s1 + s2
 	fmt.Printf("%s", s3)
 
+	str := `This is a
+multiline
+string.`
+
+	fmt.Println(str)
+
 	// true
 	fmt.Println(strings.Contains("test", "es"))
 

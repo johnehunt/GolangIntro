@@ -18,12 +18,6 @@ func main() {
 	fmt.Println(content)
 	fmt.Printf("Total calculated was = %d", result)
 
-	str := `This is a
-multiline
-string.`
-
-	fmt.Println(str)
-
 	fmt.Println("Assignment Operators")
 	x := 0
 
