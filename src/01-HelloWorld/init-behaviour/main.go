@@ -8,7 +8,7 @@ var name string
 
 // Function called when program is run before the main method
 func init() {
-	fmt.Println("Init Method on main initialization")
+	fmt.Println("Init function on main initialization")
 	name = "John"
 }
 
