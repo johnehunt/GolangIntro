@@ -19,9 +19,8 @@ func main() {
 	fmt.Printf("Total calculated was = %d", result)
 
 	fmt.Println("Assignment Operators")
-	x := 0
 
-	x = 5
+	var x = 5
 	fmt.Printf("x =5: %v\n", x)
 	x += 5
 	fmt.Printf("x +=5: %v\n", x)
