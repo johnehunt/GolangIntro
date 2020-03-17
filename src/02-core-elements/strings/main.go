@@ -12,10 +12,6 @@ func main() {
 	fmt.Printf("%s", greeting)
 	fmt.Printf("\n")
 
-	var sampleText = "John was here"
-	fmt.Printf("quoted string: ")
-	fmt.Printf("%+q \n", sampleText)
-
 	var s1 = "hello"
 	var s2 = " world"
 	var s3 = s1 + s2
