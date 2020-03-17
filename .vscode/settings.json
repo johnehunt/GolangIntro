@@ -12,7 +12,7 @@
     "go.formatOnSave": true,
     "go.inferGopath": false,
     "go.gopath": "/Users/Shared/workspaces/visualstudiocode/GolangIntro",
-    "go.goroot": "/usr/local/go",
+    "go.goroot": "/usr/local/opt/go/libexec",
     "go.formatTool": "goformat",
     "go.autocompleteUnimportedPackages": true,
     "terminal.integrated.env.linux": {
