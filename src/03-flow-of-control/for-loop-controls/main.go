@@ -21,9 +21,9 @@ func main() {
 
 	// Using the continue statement
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 5; i++ {
 		fmt.Printf("value of i: %d\n", i)
-		if i >= 5 {
+		if i >= 3 {
 			/* terminate this iteration fo the loop */
 			continue
 		}
@@ -34,10 +34,11 @@ func main() {
 
 	fmt.Println("------------------ goto")
 
-	i := 0
-	LOOP: for i < 10 {
-		for j := 0; j < 10; j++ {
-			if j == 5 {
+	i := 1
+LOOP:
+	for i < 5 {
+		for j := 1; j < 5; j++ {
+			if j == 3 {
 				i++
 				goto LOOP
 			}

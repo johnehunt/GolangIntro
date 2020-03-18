@@ -25,7 +25,7 @@ func main() {
 
 	// Nested for
 	for i := 0; i < 5; i++ {
-		for j := 0; j < 5; j++ {
+		for j := 0; j < 2; j++ {
 			fmt.Printf("%v * %v is %v\n", i, j, i*j)
 		}
 	}
@@ -35,9 +35,10 @@ func main() {
 	// Not using a loop variable
 	// Note for i=0 not i := 0
 	var i = 0
-	for i = 0; i < 4; i++ {
+	for i = 0; i < 5; i++ {
 		fmt.Printf("value of i: %v\n", i)
 	}
+	fmt.Printf("Value of is i %d\n", i)
 
 	fmt.Println("Done")
 }
