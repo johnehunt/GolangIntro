@@ -45,9 +45,10 @@ func main() {
 	r := Rectangle{width: 3, height: 4}
 	c := Circle{radius: 5}
 
-	// Rectangle implement the interface Shape
+	// Rectangle implements the interface Shape
 	// as there is a method defined for the
-	// struct with the name area
+	// struct with the name area - note the
+	// compiler works this out - its not explicit
 	fmt.Println("Process Rectangle")
 	process(r)
 
