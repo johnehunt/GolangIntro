@@ -16,6 +16,12 @@ func main() {
 		fmt.Println("X is bigger")
 	}
 
+	// Slightly extended version
+	if x > y {
+		fmt.Println("X is bigger")
+		fmt.Printf("X is %d, x * x = %d\n", x, x*x)
+	}
+
 	// If ... else ... statement
 	if x < y {
 		/* if condition is true then print the following */
@@ -42,14 +48,28 @@ func main() {
 
 	// Can nest If statements
 
-	if x == 20 {
+	snowing := true
+	temp := -1
+	if temp < 0 {
+		fmt.Println("It is freezing")
 		/* if condition is true then check the following */
-		if y == 10 {
+		if snowing {
 			/* if condition is true then print the following */
-			fmt.Println("Value of x is 20 and y is 10")
+			fmt.Println("Put on boots")
 		}
+		fmt.Println("Time for Hot Chocolate")
 	}
 
 	fmt.Println("Done")
+
+	// Can use logical operators
+	age := 15
+	status := ""
+	if age > 12 && age < 20 {
+		status = "teenager"
+	} else {
+		status = "not teenager"
+	}
+	fmt.Printf("You are a %s\n", status)
 
 }
