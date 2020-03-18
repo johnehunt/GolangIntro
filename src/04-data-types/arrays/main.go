@@ -21,7 +21,7 @@ func main() {
 	fmt.Println("---------------")
 
 	// Initialising array at creation time
-	numbers := [4]int{1, 2, 3, 5}
+	numbers := []int{1, 2, 3, 5}
 	for i, x := range numbers {
 		fmt.Printf("value of x[%d] = %d\n", i, x)
 	}
