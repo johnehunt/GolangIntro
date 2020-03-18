@@ -15,15 +15,15 @@ type Employee struct {
 func main() {
 	fmt.Println("Go MySQL Tutorial")
 
-	// Open up our database connection.
-	// I've set up a database on my local machine using phpmyadmin.
-	// The database is called testDb
+	fmt.Println("Open up database connection")
 	db, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/employees")
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
 		fmt.Println("Problem Encountered", err)
 		panic(err.Error())
+	} else {
+		fmt.Println("Successfully opened database connection")
 	}
 
 	fmt.Println("Defer closing to end of function")
@@ -34,10 +34,12 @@ func main() {
 	const sql = "UPDATE employees.employee SET name = 'Jasmine Bowen' WHERE id = 987"
 
 	// Run a query to insert a row into the database
-	insert, err := db.Query(sql)
+	update, err := db.Query(sql)
 	if err != nil {
 		panic(err.Error())
+	} else {
+		fmt.Println("Record updated")
 	}
-	defer insert.Close()
+	defer update.Close()
 
 }

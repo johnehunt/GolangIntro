@@ -15,15 +15,15 @@ type Employee struct {
 func main() {
 	fmt.Println("Go MySQL Tutorial")
 
-	// Open up our database connection.
-	// I've set up a database on my local machine using phpmyadmin.
-	// The database is called testDb
+	fmt.Println("Open up database connection")
 	db, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/employees")
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
 		fmt.Println("Problem Encountered", err)
 		panic(err.Error())
+	} else {
+		fmt.Println("Successfully opened database connection")
 	}
 
 	// Run a query on the database - returns a Rows
@@ -34,7 +34,7 @@ func main() {
 
 	// Loop through the results returned
 	for employees.Next() {
-		// For eqach row convert into a struct
+		// For each row convert into a struct
 		var employee Employee
 		err := employees.Scan(&employee.ID, &employee.name)
 		if err != nil {

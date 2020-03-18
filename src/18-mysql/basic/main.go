@@ -17,7 +17,7 @@ func main() {
 		fmt.Println("Problem Encountered", err)
 		panic(err.Error())
 	} else {
-		fmt.Println("Successfuly opened database connection")
+		fmt.Println("Successfully opened database connection")
 	}
 
 	fmt.Println("Defer closing to end of function")
