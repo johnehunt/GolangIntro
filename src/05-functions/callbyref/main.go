@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-/* function definition to swap the values */
+// Swap swaps two integers
 func Swap(x *int, y *int) {
 	var temp int
 	temp = *x /* save the value at address x */

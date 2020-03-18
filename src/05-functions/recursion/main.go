@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("Starting")
 
 	var i int = 15
-	fmt.Printf("Factorial of %d is %d", i, factorial(i))
+	fmt.Printf("Factorial of %d is %d\n", i, factorial(i))
 
 	fmt.Println("Done")
 }

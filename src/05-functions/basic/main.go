@@ -40,6 +40,14 @@ func Max(num1, num2 int) int {
 	return result
 }
 
+func inverse(v float32) (reciprocal float32) {
+	if v == 0 {
+		return
+	}
+	reciprocal = 1 / v
+	return
+}
+
 func main() {
 	fmt.Println("Starting")
 
@@ -54,6 +62,8 @@ func main() {
 	PrintResult(2, 3)
 
 	fmt.Println("Max(2, 3):", Max(2, 3))
+
+	fmt.Printf("inverse(5)=%.2f\n", inverse(5))
 
 	fmt.Println("Done")
 }
