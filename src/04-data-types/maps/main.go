@@ -22,9 +22,10 @@ func main() {
 		fmt.Println("Capital of", country, "is", countryCapitalMap[country])
 	}
 
+	fmt.Println("------------")
+
 	/* test if entry is present in the map or not*/
 	capital, ok := countryCapitalMap["United States"]
-
 	/* if ok is true, entry is present otherwise entry is absent*/
 	if ok {
 		fmt.Println("Capital of United States is", capital)
@@ -36,10 +37,12 @@ func main() {
 	delete(countryCapitalMap, "France")
 	fmt.Println("Entry for France is deleted")
 
-	/* print map */
-	for country := range countryCapitalMap {
-		fmt.Println("Capital of", country, "is", countryCapitalMap[country])
+	/* print map using key-value*/
+	for country, capital := range countryCapitalMap {
+		fmt.Println("Capital of", country, "is", capital)
 	}
+
+	fmt.Println("------------")
 
 	fmt.Println("Done")
 }
