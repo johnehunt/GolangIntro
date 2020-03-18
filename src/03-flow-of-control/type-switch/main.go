@@ -7,7 +7,8 @@ import (
 func main() {
 	fmt.Println("Starting")
 
-	var x interface{}
+	// var x interface{}
+	var x interface{} = "John"
 
 	// Type switch statement - used to compare types in
 	// an emtpy interface
@@ -20,8 +21,10 @@ func main() {
 		fmt.Println("x is float64")
 	case func(int) float64:
 		fmt.Println("x is func(int)")
-	case bool, string:
-		fmt.Println("x is bool or string")
+	case bool:
+		fmt.Println("x is bool")
+	case string:
+		fmt.Println("x is string")
 	default: /* Optional */
 		fmt.Println("don't know the type")
 	}
