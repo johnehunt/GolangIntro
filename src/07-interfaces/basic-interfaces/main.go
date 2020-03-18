@@ -5,9 +5,9 @@ import (
 	"math"
 )
 
-// Shape basic interface for chapes
+// Shape basic interface for shape like things
 type Shape interface {
-	area() float64
+	Area() float64
 }
 
 // Rectangle (shapes)
@@ -20,17 +20,17 @@ type Circle struct {
 	radius float64
 }
 
-// To implement an interface in go,
+// Area To implement an interface in go,
 // implement all the methods in the interface
 // for a specific type
 // Note implementing method uses a value receiver
-func (r Rectangle) area() float64 {
+func (r Rectangle) Area() float64 {
 	return r.width * r.height
 }
 
-// This implements the SHape interface for Cirlce
+// Area implements the Shape interface for Cirlce
 // Note implementing method uses a value receiver
-func (c Circle) area() float64 {
+func (c Circle) Area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
@@ -38,7 +38,7 @@ func (c Circle) area() float64 {
 // on the parameter s
 func process(s Shape) {
 	fmt.Println("Shape: ", s)
-	fmt.Println("s.area()", s.area())
+	fmt.Println("s.Area()", s.Area())
 }
 
 func main() {
