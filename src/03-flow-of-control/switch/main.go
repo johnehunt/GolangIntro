@@ -21,6 +21,7 @@ func main() {
 	default:
 		grade = "D"
 	}
+	fmt.Printf("The mark %d gives you a %s\n", marks, grade)
 
 	// Switch statement without an
 	// optional statement
@@ -33,6 +34,8 @@ func main() {
 		fmt.Println("You passed")
 	case grade == "F":
 		fmt.Println("Better try again")
+	case marks == 1:
+		fmt.Println("Do something about it")
 	default:
 		fmt.Println("Invalid grade")
 	}
