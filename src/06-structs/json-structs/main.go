@@ -9,8 +9,8 @@ import (
 type Book struct {
 	ISBN   int
 	Title  string
-	Author string `json:"authorid"`
-	Price  float64
+	Author string  `json:"authorid"`
+	Price  float64 `json:"price"`
 }
 
 func main() {
@@ -22,12 +22,16 @@ func main() {
 	fmt.Printf("books: %v\n", books)
 
 	// Marshal to JSON
-	data, err := json.Marshal(books[0])
+	book := Book{123, "Go Introduction", "Bill", 12.99}
+	fmt.Println("Book:", book)
+	data, err := json.Marshal(book)
 	if err != nil {
 		fmt.Println("Something went wrong!", err)
 	} else {
 		fmt.Printf("Data: %s\n", data)
 	}
+
+	fmt.Println("-------------")
 
 	data, err = json.Marshal(books)
 	if err != nil {

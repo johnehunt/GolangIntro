@@ -20,7 +20,7 @@ func (p *Person) birthday() {
 }
 
 func (p Person) calculatePay(rate float64, hours float64) float64 {
-	fmt.Printf("%s you worked %f hours at %f ", p.name, hours, rate)
+	fmt.Printf("%s you worked %0.2f hours at %0.2f\n", p.name, hours, rate)
 	return rate * hours
 }
 
@@ -28,11 +28,11 @@ func main() {
 	var p1 = newPerson("John", 21)
 	p1.birthday()
 	var pay = p1.calculatePay(8.55, 12.5)
-	fmt.Printf("You were paid %f\n", pay)
+	fmt.Printf("You were paid %0.2f\n", pay)
 
 	// Use a pointer receiver type to avoid copying on method calls
 	refp1 := &Person{name: "Paul", age: 35}
 	pay2 := refp1.calculatePay(8.55, 12.5)
-	fmt.Println(pay2)
+	fmt.Printf("You were paid %0.2f\n", pay2)
 
 }
