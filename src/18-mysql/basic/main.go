@@ -7,17 +7,17 @@ import (
 )
 
 func main() {
-	fmt.Println("Go MySQL Tutorial")
+	fmt.Println("Starting")
 
-	// Open up our database connection.
-	// I've set up a database on my local machine using phpmyadmin.
-	// The database is called testDb
+	fmt.Println("Open up database connection")
 	db, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/employees")
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
 		fmt.Println("Problem Encountered", err)
 		panic(err.Error())
+	} else {
+		fmt.Println("Successfuly opened database connection")
 	}
 
 	fmt.Println("Defer closing to end of function")
@@ -25,4 +25,5 @@ func main() {
 	// executing
 	defer db.Close()
 
+	fmt.Println("Done")
 }
