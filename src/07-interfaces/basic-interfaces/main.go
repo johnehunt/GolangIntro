@@ -15,11 +15,6 @@ type Rectangle struct {
 	width, height float64
 }
 
-// Circle (shapes)
-type Circle struct {
-	radius float64
-}
-
 // Area To implement an interface in go,
 // implement all the methods in the interface
 // for a specific type
@@ -28,7 +23,12 @@ func (r Rectangle) Area() float64 {
 	return r.width * r.height
 }
 
-// Area implements the Shape interface for Cirlce
+// Circle (shapes)
+type Circle struct {
+	radius float64
+}
+
+// Area implements the Shape interface for Circle
 // Note implementing method uses a value receiver
 func (c Circle) Area() float64 {
 	return math.Pi * c.radius * c.radius
@@ -43,7 +43,6 @@ func process(s Shape) {
 
 func main() {
 	r := Rectangle{width: 3, height: 4}
-	c := Circle{radius: 5}
 
 	// Rectangle implements the interface Shape
 	// as there is a method defined for the
@@ -52,6 +51,7 @@ func main() {
 	fmt.Println("Process Rectangle")
 	process(r)
 
+	c := Circle{radius: 5}
 	fmt.Println("Process Circle")
 	process(c)
 }
