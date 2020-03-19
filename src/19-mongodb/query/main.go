@@ -52,20 +52,18 @@ func main() {
 	findOptions := options.Find()
 	findOptions.SetLimit(100)
 
-	// Here's an array in which you can store the decoded documents
+	// An array in which you can store the decoded documents
 	var results []*User
 
-	// Passing bson.D{{}} as the filter matches all documents in the collection
+	// Using bson.D{{}} as the query matches all documents
 	cur, err := collection.Find(context.TODO(), bson.D{{}}, findOptions)
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	// Finding multiple documents returns a cursor
-	// Iterating through the cursor allows us to decode documents one at a time
+	// Iterating through the cursor to decode documents
 	for cur.Next(context.TODO()) {
-
-		// create a value into which the single document can be decoded
+		// create a value into which a document can be decoded
 		var user User
 		err := cur.Decode(&user)
 		if err != nil {
@@ -75,7 +73,6 @@ func main() {
 		fmt.Println("user:", user)
 		results = append(results, &user)
 	}
-
 	if err := cur.Err(); err != nil {
 		log.Fatal(err)
 	}
@@ -85,7 +82,6 @@ func main() {
 	fmt.Println("Disconnecting from MondoDB")
 
 	err = client.Disconnect(context.TODO())
-
 	if err != nil {
 		log.Fatal(err)
 	}

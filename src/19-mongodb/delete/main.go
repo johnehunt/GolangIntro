@@ -35,7 +35,7 @@ func main() {
 	collection := client.Database("userdb").Collection("users")
 
 	// Delete One --------------
-	query := bson.D{{"id", 111}}
+	query := bson.D{{"id", 433}}
 	deleteResult, err := collection.DeleteOne(context.TODO(), query)
 	if err != nil {
 		log.Fatal(err)

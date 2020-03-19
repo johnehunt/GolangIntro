@@ -9,12 +9,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// Employee holds info on an employee
-type Employee struct {
-	ID   int
-	name string
-}
-
 func main() {
 	fmt.Println("Starting")
 

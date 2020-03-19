@@ -34,7 +34,7 @@ func main() {
 	fmt.Println("Connecting to collection")
 	collection := client.Database("userdb").Collection("users")
 
-	// Insert One --------------
+	// Update One --------------
 	query := bson.D{{"id", 454}}
 	update := bson.D{
 		{"$set", bson.D{
