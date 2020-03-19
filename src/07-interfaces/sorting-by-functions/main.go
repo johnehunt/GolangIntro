@@ -5,22 +5,22 @@ import (
 	"sort"
 )
 
-type byLength []string
+type LengthSortedStringArray []string
 
-func (s byLength) Len() int {
+func (s LengthSortedStringArray) Len() int {
 	return len(s)
 }
-func (s byLength) Swap(i, j int) {
+func (s LengthSortedStringArray) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
-func (s byLength) Less(i, j int) bool {
+func (s LengthSortedStringArray) Less(i, j int) bool {
 	return len(s[i]) < len(s[j])
 }
 
 func main() {
 	fmt.Println("Start")
 	fruits := []string{"peach", "banana", "kiwi"}
-	sort.Sort(byLength(fruits))
+	sort.Sort(LengthSortedStringArray(fruits))
 	fmt.Println(fruits)
 	fmt.Println("Done")
 }

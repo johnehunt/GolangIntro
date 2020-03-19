@@ -24,6 +24,9 @@ func main() {
 
 	var v2 interface{} = "John"
 	fmt.Println("v2:", v2) // Its "John"
+	v2 = 42
+	fmt.Println("v2 now:", v2)
+	v2 = "John"
 
 	// Can obtain value from v2 using type assertion
 	// type assertion provides access to an interface value's
