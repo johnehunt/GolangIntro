@@ -4,22 +4,13 @@ import "fmt"
 
 // Person struct
 type Person struct {
-	name string
-	age  int
+	Name string
+	Age  int
 }
 
-// Degree struct
+// Degree interface
 type Degree interface {
-	title() string
-}
-
-// UndergraduateDegree struct implementing the Degree interface
-type UndergraduateDegree struct {
-	name string
-}
-
-func (d UndergraduateDegree) title() string {
-	return d.name
+	Title() string
 }
 
 // Student struct
@@ -29,7 +20,17 @@ type Student struct {
 	Degree
 }
 
+// UndergraduateDegree struct implementing the Degree interface
+type UndergraduateDegree struct {
+	Name string
+}
+
+func (d UndergraduateDegree) Title() string {
+	return d.Name
+}
+
 func main() {
 	var s = Student{"UWE", Person{"John", 21}, UndergraduateDegree{"Computing"}}
 	fmt.Println("s:", s)
+	fmt.Println("s.Title():", s.Title())
 }
