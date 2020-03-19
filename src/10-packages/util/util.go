@@ -1,9 +1,6 @@
 package util
 
-import (
-	"rsc.io/quote"
-	quoteV3 "rsc.io/quote/v3"
-)
+import "fmt"
 
 // Package names match the folders that hold them
 // Can get around this - but don;t
@@ -15,9 +12,6 @@ import (
 // standard package documentation. In a terminal run this command:
 // godoc golang-book/chapter11/math Average
 
-// Distance Represents a distance such as 100 feet
-type Distance int
-
 // Celsius Represents a temperature
 type Celsius float64
 
@@ -27,12 +21,11 @@ const MAX = 100
 // Freezing used to represent the value for water to freeze
 const Freezing Celsius = 0.0
 
-// Hello function
-func Hello() string {
-	return quote.Hello()
+func Printer(value interface{}) {
+	fmt.Println(value)
 }
 
-// Proverb function
-func Proverb() string {
-	return quoteV3.Concurrency()
+type Model struct {
+	ID   string
+	Name string
 }

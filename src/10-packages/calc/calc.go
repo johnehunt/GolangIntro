@@ -1,12 +1,12 @@
 package calc
 
-// make sur eyou run go install in this directory to compile
-// the calculcator.go file and create a linkable object in the paxkage location
+// make sure you run go install to compile
+// the calculcator.go file and create a linkable object in the package location
 
 import "fmt"
 
 func init() {
-	fmt.Println("Runs when mdoule is loaded")
+	fmt.Println("Runs when module is loaded")
 }
 
 // InvalidArgumentError custom exception type

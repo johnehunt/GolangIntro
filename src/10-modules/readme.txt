@@ -13,8 +13,7 @@ With Go modules, versions are referenced with semantic version tags.
 A semantic version has three parts: major, minor, and patch. 
 
 For example, for v0.1.2, the major version is 0, the minor version is 1, and 
-the patch version is 2. Let's walk through a couple minor version upgrades. 
-
+the patch version is 2.
 
 
 go list -m all
