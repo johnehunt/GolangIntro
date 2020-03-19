@@ -7,12 +7,12 @@ import (
 // InvalidArgumentError custom exception type
 // Implements the Error interface with the Errors method
 type InvalidArgumentError struct {
-	argument int
-	problem  string
+	Argument int
+	Problem  string
 }
 
 func (e *InvalidArgumentError) Error() string {
-	return fmt.Sprintf("%d - %s", e.argument, e.problem)
+	return fmt.Sprintf("%d - %s", e.Argument, e.Problem)
 }
 
 func divide(x int, y int) (int, error) {
@@ -31,8 +31,8 @@ func main() {
 		// Use type assertion to get data from exception
 		ae := err.(*InvalidArgumentError)
 		if ae != nil {
-			fmt.Println(ae.argument)
-			fmt.Println(ae.problem)
+			fmt.Println(ae.Argument)
+			fmt.Println(ae.Problem)
 		}
 	} else {
 		fmt.Println("All was ok:", result)

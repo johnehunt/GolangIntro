@@ -10,7 +10,7 @@ func main() {
 
 	file, err := os.Open(filename)
 
-	//er will be nil if the file exists else it returns an error object
+	//er will be nil if the file exists else it returns an error value
 	if err != nil {
 		fmt.Println(err)
 	} else {

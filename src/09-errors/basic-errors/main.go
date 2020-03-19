@@ -6,7 +6,7 @@ import (
 )
 
 // In Go it’s idiomatic to communicate errors via an explicit,
-// separate return value. T
+// separate return value.
 func divide(x int, y int) (int, error) {
 	if y == 0 {
 		return -1, errors.New("No division by Zero")
