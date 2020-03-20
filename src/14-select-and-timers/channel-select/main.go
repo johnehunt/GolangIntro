@@ -15,7 +15,7 @@ func worker(msg string, channel chan string) {
 
 func main() {
 	fmt.Println("Starting")
-	// Create to channels to select across
+	// Create two channels to select across
 	c1 := make(chan string)
 	c2 := make(chan string)
 
@@ -24,8 +24,8 @@ func main() {
 	go worker("B", c2)
 
 	fmt.Println("Await the messages")
-	// use select to await both of messages
-	// on the two channels
+	// use select to block on both channels – will unblock
+	// when emssage received on one of the two channels
 	for i := 0; i < 2; i++ {
 		select {
 		case msg1 := <-c1:
