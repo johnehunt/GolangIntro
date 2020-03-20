@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func checkForError(e error) {
+func PanicIfError(e error) {
 	if e != nil {
 		panic(e)
 	}
@@ -17,15 +17,17 @@ func checkForError(e error) {
 func main() {
 
 	// Read contents of file into memory
-	dat, err := ioutil.ReadFile("input.txt")
-	checkForError(err)
-	fmt.Println(string(dat))
+	data, err := ioutil.ReadFile("input.txt")
+	PanicIfError(err)
+	fmt.Println(string(data))
 
 	fmt.Println("-------------")
 
 	// For more control - read a line at a time
 	f, err := os.Open("input.txt")
-	checkForError(err)
+	PanicIfError(err)
+	// Close the file when you’re done
+	defer f.Close()
 
 	bufferedReader := bufio.NewReader(f)
 	for {
@@ -38,8 +40,6 @@ func main() {
 		}
 	}
 
-	//	Close the file when you’re done
-	f.Close()
 	fmt.Println("Done")
 
 }
