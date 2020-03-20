@@ -8,8 +8,9 @@ func main() {
 	messages := make(chan string, 2)
 
 	// Send to message and buffer them
-	messages <- "buffered"
-	messages <- "channel"
+	messages <- "Hello"
+	messages <- "World"
+	// messages <- "Brave New World" // will result in an error
 
 	// Receive the two buffered messages
 	fmt.Println(<-messages)

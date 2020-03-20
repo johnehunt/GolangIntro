@@ -5,16 +5,16 @@ import "fmt"
 func main() {
 
 	// Create a new channel that handles strings
-	messages := make(chan string)
+	messageChannel := make(chan string)
 
 	// Use a goroutine to send message
 	go func() {
 		// Send a value into a channel using the channel <- syntax
-		messages <- "ping"
+		messageChannel <- "Hello World"
 	}()
 
 	// The <-channel syntax receives a value from the channel
-	msg := <-messages
+	msg := <-messageChannel
 
 	// Print out the message received
 	fmt.Println(msg)
