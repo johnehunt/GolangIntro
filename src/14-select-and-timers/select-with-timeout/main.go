@@ -15,7 +15,7 @@ func worker(msg string, channel chan string) {
 func main() {
 	fmt.Println("Starting")
 
-	fmt.Println("Set up channel and 1st goroutine")
+	fmt.Println("Set up channel and goroutine")
 	c1 := make(chan string, 1)
 	go worker("A", c1)
 
@@ -27,16 +27,5 @@ func main() {
 		fmt.Println("timeout 1")
 	}
 
-	fmt.Println("Set up channel and 1st goroutine")
-	c2 := make(chan string, 1)
-	go worker("B", c2)
-
-	fmt.Println("select with 4 second timeout")
-	select {
-	case res := <-c2:
-		fmt.Println(res)
-	case <-time.After(4 * time.Second):
-		fmt.Println("timeout 2")
-	}
 	fmt.Println("Done")
 }
