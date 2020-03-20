@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-// Handle error situations
+// PanicIfError handle error situations
 func PanicIfError(e error) {
 	if e != nil {
 		fmt.Println(e)
