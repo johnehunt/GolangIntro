@@ -7,23 +7,57 @@ import (
 	"time"
 )
 
-type readOp struct {
-	key  int
-	resp chan int
+type ReadOperation struct {
+	response chan uint64
 }
-type writeOp struct {
-	key  int
-	val  int
-	resp chan bool
+type WriteOperation struct {
+	value    uint64
+	response chan bool
+}
+
+func statefulWorker(readChannel chan ReadOperation, writeChannel chan WriteOperation) {
+	var state uint64 = 0
+	for {
+		select {
+		case read := <-readChannel:
+			fmt.Println("Received read operation: ")
+			read.response <- state
+		case write := <-writeChannel:
+			fmt.Println("Received write operation: ", write.value)
+			state += write.value
+			write.response <- true
+		}
+	}
+}
+
+func reader(readChannel chan ReadOperation, readValue *uint64) {
+	fmt.Println("Requesting read operation")
+	var responseChannel = make(chan uint64)
+	read := ReadOperation{responseChannel}
+	readChannel <- read
+	r := <-read.response
+	fmt.Println("Read response value:", r)
+	atomic.AddUint64(readValue, r)
+}
+
+func writer(writeChannel chan WriteOperation, writevalue *uint64) {
+	var responseChannel = make(chan bool)
+	for i := 0; i < 5; i++ {
+		fmt.Println("Sending a write operation")
+		write := WriteOperation{rand.Uint64(), responseChannel}
+		writeChannel <- write
+		<-write.response
+		atomic.AddUint64(writevalue, 1)
+	}
 }
 
 func main() {
 
-	var readOps uint64
-	var writeOps uint64
+	var readValue uint64
+	var writeValue uint64
 
-	reads := make(chan readOp)
-	writes := make(chan writeOp)
+	readChannel := make(chan ReadOperation)
+	writeChannel := make(chan WriteOperation)
 
 	// state will be owned by a single goroutine
 	// In order to read or write that state, other
@@ -31,52 +65,20 @@ func main() {
 	// and receive corresponding replies. These readOp and writeOp
 	// structs encapsulate those requests and a way for the
 	// owning goroutine to respond.
-	go func() {
-		var state = make(map[int]int)
-		for {
-			select {
-			case read := <-reads:
-				read.resp <- state[read.key]
-			case write := <-writes:
-				state[write.key] = write.val
-				write.resp <- true
-			}
-		}
-	}()
+	go statefulWorker(readChannel, writeChannel)
 
-	for r := 0; r < 100; r++ {
-		go func() {
-			for {
-				read := readOp{
-					key:  rand.Intn(5),
-					resp: make(chan int)}
-				reads <- read
-				<-read.resp
-				atomic.AddUint64(&readOps, 1)
-				time.Sleep(time.Millisecond)
-			}
-		}()
+	// Run a set of Goroutines to read info
+	for r := 0; r < 5; r++ {
+		go reader(readChannel, &readValue)
 	}
 
-	for w := 0; w < 10; w++ {
-		go func() {
-			for {
-				write := writeOp{
-					key:  rand.Intn(5),
-					val:  rand.Intn(100),
-					resp: make(chan bool)}
-				writes <- write
-				<-write.resp
-				atomic.AddUint64(&writeOps, 1)
-				time.Sleep(time.Millisecond)
-			}
-		}()
-	}
+	// Run writer Goroutine
+	go writer(writeChannel, &writeValue)
 
 	time.Sleep(time.Second)
 
-	readOpsFinal := atomic.LoadUint64(&readOps)
-	fmt.Println("readOps:", readOpsFinal)
-	writeOpsFinal := atomic.LoadUint64(&writeOps)
-	fmt.Println("writeOps:", writeOpsFinal)
+	finalReadValue := atomic.LoadUint64(&readValue)
+	fmt.Println("finalReadValue:", finalReadValue)
+	finalWriteValue := atomic.LoadUint64(&writeValue)
+	fmt.Println("finalWriteValue:", finalWriteValue)
 }
