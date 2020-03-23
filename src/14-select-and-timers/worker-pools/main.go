@@ -8,7 +8,7 @@ import (
 func worker(id int, tasks <-chan int, results chan<- int) {
 	for j := range tasks {
 		fmt.Println("worker", id, "started  job", j)
-		time.Sleep(time.Second)
+		time.Sleep(time.Duration(2) * time.Second)
 		fmt.Println("worker", id, "finished job", j)
 		results <- j * 2
 	}
@@ -33,7 +33,8 @@ func main() {
 		tasks <- j
 	}
 
-	// Close that channel to indicate that’s all the work we have.
+	// Close the task channel to indicate
+	// that there is no further work to do
 	close(tasks)
 
 	// Collect the results of the work
