@@ -1,6 +1,9 @@
 package calc
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 // TestCalcAddOneAndOne checks addition
 func TestCalcAddOneAndOne(t *testing.T) {
@@ -8,6 +11,19 @@ func TestCalcAddOneAndOne(t *testing.T) {
 	if v != 2 || err != nil {
 		t.Error("Expected 2, got ", v)
 	}
+}
+
+func BenchmarkCalc1000DividedBy3(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		v, err := Calculator("/", 1000, 3)
+		if v != 333 || err != nil {
+			b.Error("Expected 333, got ", v)
+		}
+	}
+}
+
+func TestToCheckExp(t *testing.T) {
+	t.Skip("skipping test is not implemented yet.")
 }
 
 type testdata struct {
@@ -32,4 +48,10 @@ func TestCalcParametricTest(t *testing.T) {
 			t.Error("Expected", data.result, ", got ", v)
 		}
 	}
+}
+
+func TestMain(m *testing.M) {
+	fmt.Println("Setup behaviour")
+	m.Run()
+	fmt.Println("Shutdown behaviour")
 }
