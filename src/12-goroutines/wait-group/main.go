@@ -13,6 +13,7 @@ func printer(msg string, wg *sync.WaitGroup) {
 		fmt.Print(msg)
 	}
 }
+
 func main() {
 	fmt.Println("Starting")
 
