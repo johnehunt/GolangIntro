@@ -3,7 +3,7 @@ package util
 import "fmt"
 
 // Package names match the folders that hold them
-// Can get around this - but don;t
+// Can get around this - but don't
 
 // Optional leading article comments added
 // have the format Type followed by explanation
