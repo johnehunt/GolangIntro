@@ -1,9 +1,10 @@
 package main
 
 import (
-	"./util"
 	"10-packages/calc"
 	"fmt"
+
+	"10-modules/util"
 )
 
 func main() {
@@ -14,7 +15,7 @@ func main() {
 	fmt.Printf("Boiling is %0.2f\n", boiling)
 	var v interface{} = "John"
 	util.Printer(v)
-	var m = util.Model{"123", "Adam"}
+	var m = util.Model{ID: "123", Name: "Adam"}
 	fmt.Println(m)
 
 	var result, err = calc.Calculator("+", 2, 3)
