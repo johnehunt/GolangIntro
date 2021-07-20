@@ -1,3 +1,3 @@
 module 10-modules/util
 
-go 1.14
+go 1.16

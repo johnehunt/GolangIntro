@@ -1,5 +1,7 @@
 package util
 
+import "fmt"
+
 // Celsius Represents a temperature
 type Celsius float64
 
