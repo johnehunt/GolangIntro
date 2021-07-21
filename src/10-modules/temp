@@ -1,4 +1,4 @@
-module 10-packages-and-modules/modules
+module 10-modules/util
 
 go 1.16
 

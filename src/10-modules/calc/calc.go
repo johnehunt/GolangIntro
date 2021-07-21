@@ -1,12 +1,12 @@
 package calc
 
-// make sure you run go install to compile
+// make sure you run go install 10-modules/calc to compile
 // the calculcator.go file and create a linkable object in the package location
 
 import "fmt"
 
 func init() {
-	fmt.Println("Runs when module is loaded")
+	fmt.Println("Runs when package calc is loaded")
 }
 
 // InvalidArgumentError custom exception type

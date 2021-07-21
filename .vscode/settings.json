@@ -15,7 +15,8 @@
     "go.goroot": "/usr/local/opt/go/libexec",
     "go.formatTool": "goformat",
     "go.autocompleteUnimportedPackages": true,
-    "terminal.integrated.env.linux": {
+    "terminal.integrated.allowWorkspaceConfiguration": true,
+    "terminal.integrated.env.osx": {
         "GOPATH": "/Users/Shared/workspaces/visualstudiocode/GolangIntro"
     }
 }
