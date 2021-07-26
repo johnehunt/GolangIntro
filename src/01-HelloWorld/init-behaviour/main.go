@@ -14,5 +14,5 @@ func init() {
 
 func main() {
 	fmt.Println("Hello World")
-	fmt.Println("Hello", name)
+	fmt.Printf("Hello %s\n", name)
 }
