@@ -7,7 +7,7 @@ import (
 func main() {
 	fmt.Println("Starting")
 
-	// var x interface{}
+	// An idiom used to indicate x is any type of thing
 	var x interface{} = "John"
 
 	// Type switch statement - used to compare types in
