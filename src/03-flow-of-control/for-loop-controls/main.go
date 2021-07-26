@@ -47,5 +47,16 @@ LOOP:
 		i++
 	}
 
+	fmt.Println("-------------------- for without options")
+
+	j := 0
+	for {
+		if j > 5 {
+			break
+		}
+		fmt.Printf("j is = %d\n", j)
+		j++
+	}
+
 	fmt.Println("Done")
 }
