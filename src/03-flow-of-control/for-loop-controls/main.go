@@ -30,6 +30,17 @@ func main() {
 		fmt.Printf("value of i*i: %d\n", i*i)
 	}
 
+	fmt.Println("-------------------- for without options")
+
+	j := 0
+	for {
+		if j > 5 {
+			break
+		}
+		fmt.Printf("j is = %d\n", j)
+		j++
+	}
+
 	// Using the gogo statement to jump to a label
 
 	fmt.Println("------------------ goto")
@@ -45,17 +56,6 @@ LOOP:
 			fmt.Printf("%v * %v is %v\n", i, j, i*j)
 		}
 		i++
-	}
-
-	fmt.Println("-------------------- for without options")
-
-	j := 0
-	for {
-		if j > 5 {
-			break
-		}
-		fmt.Printf("j is = %d\n", j)
-		j++
 	}
 
 	fmt.Println("Done")
