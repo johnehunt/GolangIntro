@@ -10,8 +10,10 @@ func main() {
 
 	i = 5
 	fmt.Printf("i is of type %T with value: %d\n", i, i)
+
 	c = 12
 	fmt.Printf("c is of type %T with value: %d\n", c, c)
+
 	salary = 25000.00
 	fmt.Printf("salary is of type %T with value: %0.2f\n", salary, salary)
 
