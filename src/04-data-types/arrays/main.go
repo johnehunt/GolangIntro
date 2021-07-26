@@ -6,7 +6,12 @@ import (
 
 func main() {
 	fmt.Println("Starting")
-	var n [10]int /* n is an array of 10 integers */
+	var n [10]int /* n is an array of 10 integers - all values initialised to zero */
+
+	/* ALl array values are Zero
+	for i := 0; i < 10; i++ {
+		fmt.Println(n[i])
+	}
 
 	/* initialize elements of array n to 0 */
 	for i := 0; i < 10; i++ {
