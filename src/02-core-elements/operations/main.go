@@ -38,7 +38,7 @@ func main() {
 
 	x = 5
 	y = 3
-	fmt.Println("Binary Operators")
+	fmt.Println("Binary / Bitwise Operators")
 	fmt.Printf("x & y: %v\n", x&y)
 	fmt.Printf("x | y: %v\n", x|y)
 	fmt.Printf("x ^ y: %v\n", x^y)
