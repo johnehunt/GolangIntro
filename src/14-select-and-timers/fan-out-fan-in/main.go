@@ -75,11 +75,11 @@ func main() {
 	fmt.Printf("Number of CPUS %d\n", numFinders)
 
 	fmt.Println("Starting - setting up data")
-	size := 10000
+	const SIZE = 10000
 
-	data := make([]int, size, size)
-	for n := 0; n < size; n++ {
-		data = append(data, rand.Intn(size))
+	data := make([]int, SIZE, SIZE)
+	for n := 0; n < SIZE; n++ {
+		data = append(data, rand.Intn(SIZE))
 	}
 
 	start := time.Now()
