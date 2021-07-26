@@ -1,3 +1,4 @@
+// Specify part of the main package
 package main
 
 // Import the fmt package
