@@ -14,5 +14,6 @@ func init() {
 
 func main() {
 	fmt.Println("Hello World")
+	// Using the PrintF function to provide formatted output
 	fmt.Printf("Hello %s\n", name)
 }
