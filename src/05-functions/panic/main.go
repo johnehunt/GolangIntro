@@ -2,11 +2,16 @@ package main
 
 import "fmt"
 
-func printName(firstName, lastName string) {
+/*
+PrintName illustrates how panic can be used.
+Note this is not considered the way in whioch functiosn shoudl indicate standard errors in Go
+Panic shoudl only be used in very exceptional situaitons
+*/
+func PrintName(firstName, lastName string) {
 	if firstName == "" {
-		panic("runtime error: first name cannot be empty")
+		panic("error: first name cannot be empty")
 	} else if lastName == "" {
-		panic("runtime error: last name cannot be empty")
+		panic("error: last name cannot be empty")
 	} else {
 		fmt.Println(firstName, lastName)
 	}
@@ -15,7 +20,7 @@ func printName(firstName, lastName string) {
 func main() {
 	fmt.Println("Starting")
 
-	printName("", "Jones")
+	PrintName("", "Jones")
 
 	fmt.Println("Done")
 }
