@@ -7,17 +7,24 @@ import (
 func main() {
 	fmt.Println("Starting")
 
+	// Create a slice on a backing integer array
+	// Slices are a bit like ArrayList or Vecotr in other languages
+	// numbers is a slice holding integers of size 3 with capacity 5
+	// currently filled with zeros
 	var numbers = make([]int, 3, 5)
 	fmt.Printf("len=%d, cap=%d, slice=%v\n", len(numbers), cap(numbers), numbers)
 
+	// An empty slice
 	var numbers2 []int
 	if numbers2 == nil {
 		fmt.Println("slice is nil")
 	}
 
 	fmt.Println("-------------")
-	// Append
+	// Example of using append
+	// Note append may return a new slice as data is currently empty
 	var data []int
+	fmt.Printf("len=%d, cap=%d, slice=%v\n", len(data), cap(data), data)
 	data = append(data, 1)
 	fmt.Println("data =", data)
 	fmt.Printf("data len=%d, cap=%d\n", len(data), cap(data))
