@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-// PrintResult Functionw without a return result
-// Convention is the public functions start with a capital letter
+// PrintResult Function without a return result
+// Convention is that public functions start with a capital letter
 // local functions have an initial lowercase letter
-// Public functions shoudl have a comment starting with the name of the function
+// Public functions should have a comment starting with the name of the function
 func PrintResult(i, j int) {
 	result := i + j
 	fmt.Printf("%d + %d = %d\n", i, j, result)
@@ -26,7 +26,7 @@ func Greeter(name string, message string) {
 	fmt.Printf("Welcome %s - %s\n", name, message)
 }
 
-// Max function returning the max between two numbers
+// Max function returns the max value between two integers
 func Max(num1, num2 int) int {
 
 	/* local variable declaration */
@@ -40,6 +40,9 @@ func Max(num1, num2 int) int {
 	return result
 }
 
+// inverse illustrates use of named return value and type
+// return without a value will implicitly return reciprocal local variable
+// can still return other values e.g. return 42
 func inverse(v float32) (reciprocal float32) {
 	if v == 0 {
 		return
