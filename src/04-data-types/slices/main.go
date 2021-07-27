@@ -16,6 +16,7 @@ func main() {
 
 	// An empty slice
 	var numbers2 []int
+	fmt.Printf("len=%d, cap=%d, slice=%v\n", len(numbers2), cap(numbers2), numbers2)
 	if numbers2 == nil {
 		fmt.Println("slice is nil")
 	}
@@ -38,7 +39,7 @@ func main() {
 	// Subslicing
 	marks := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
 	/* print the original */
-	fmt.Println("marks ==", marks)
+	fmt.Printf("len=%d, cap=%d, slice=%v\n", len(marks), cap(marks), marks)
 
 	/* print the sub slice starting from index 1(included)
 	// to index 4(excluded)*/
@@ -49,6 +50,14 @@ func main() {
 
 	/* missing upper bound implies len(s)*/
 	fmt.Println("marks[4:] ==", marks[4:])
+
+	fmt.Println("-------------")
+
+	/* subsclice is a view onto same array as original slice */
+	fmt.Println(marks)
+	tempMarks := marks[1:4]
+	tempMarks[1] = 100
+	fmt.Println(marks)
 
 	fmt.Println("-------------")
 
