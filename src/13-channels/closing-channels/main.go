@@ -21,13 +21,13 @@ func worker(channel chan string) {
 }
 
 func main() {
-	// Set up two channels
+	// Set up the channel
 	tasks := make(chan string, 5)
 
 	fmt.Println("Start goroutines")
 	go worker(tasks)
-	tasks <- "Do Work"
-	tasks <- "Do Work"
+	tasks <- "Do Work1"
+	tasks <- "Do Work2"
 
 	fmt.Println("Sleep for a bit")
 	time.Sleep(3 * time.Second)
