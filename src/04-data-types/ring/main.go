@@ -20,8 +20,14 @@ func main() {
 		ring = ring.Next()
 	}
 
+	// Print elements in ring
+	for i := 0; i < ringLength; i++ {
+		fmt.Println(ring.Value)
+		ring = ring.Next()
+	}
+
 	// Iterate through the ring and print its contents
-	// Higher order function Do takes a functionm to apply
+	// Higher order function Do takes a function to apply
 	// to each element in the ring
 	ring.Do(func(p interface{}) {
 		fmt.Print(p.(int), ",")
