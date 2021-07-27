@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+/* Note returns readonly channel
+   internally function can write to channel
+   but externally others can only read from it.
+   This is called lexical confinement
+*/
 func generator(integers ...int) <-chan int {
 	intChannel := make(chan int)
 	go func() {
