@@ -2,7 +2,10 @@ package main
 
 import "fmt"
 
-func sum(nums ...int) int {
+/*
+ Sum can take any number of arguments
+*/
+func Sum(nums ...int) int {
 	total := 0
 	for _, num := range nums {
 		total += num
@@ -13,11 +16,13 @@ func sum(nums ...int) int {
 func main() {
 	fmt.Println("Starting")
 
-	fmt.Println("sum(1, 2):", sum(1, 2))
-	fmt.Println("sum(1, 2, 3):", sum(1, 2, 3))
+	fmt.Println("sum():", Sum())
+	fmt.Println("sum(1):", Sum(1))
+	fmt.Println("sum(1, 2):", Sum(1, 2))
+	fmt.Println("sum(1, 2, 3):", Sum(1, 2, 3))
 
 	nums := []int{1, 2, 3, 4}
-	fmt.Println("sum(nums...):", sum(nums...))
+	fmt.Println("sum(nums...):", Sum(nums...))
 
 	fmt.Println("Done")
 }
