@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
-	"runtime"
-	"time"
 )
 
 // Provides a simple fan in - fan out example
 
-func generatePipeline(numbers []int) <-chan int {
+func generator(numbers []int) <-chan int {
 	intStream := make(chan int)
 	go func() {
 		for _, n := range numbers {
@@ -39,7 +37,7 @@ func isPrime(value int) bool {
 	return value > 1
 }
 
-func primeNumberCheckStage(intChannel <-chan int) <-chan bool {
+func primeNumberCheck(intChannel <-chan int) <-chan bool {
 	resultsChannel := make(chan bool)
 	go func() {
 		for i := range intChannel {
@@ -70,10 +68,6 @@ func fanIn(c1, c2, c3, c4 <-chan bool) <-chan bool {
 }
 
 func main() {
-
-	numFinders := runtime.NumCPU()
-	fmt.Printf("Number of CPUS %d\n", numFinders)
-
 	fmt.Println("Starting - setting up data")
 	const SIZE = 10000
 
@@ -82,16 +76,14 @@ func main() {
 		data = append(data, rand.Intn(SIZE))
 	}
 
-	start := time.Now()
-
 	// Create shared input channel
-	inputChannel := generatePipeline(data)
+	inputChannel := generator(data)
 
 	// Fan out to 4 goroutines
-	c1 := primeNumberCheckStage(inputChannel)
-	c2 := primeNumberCheckStage(inputChannel)
-	c3 := primeNumberCheckStage(inputChannel)
-	c4 := primeNumberCheckStage(inputChannel)
+	c1 := primeNumberCheck(inputChannel)
+	c2 := primeNumberCheck(inputChannel)
+	c3 := primeNumberCheck(inputChannel)
+	c4 := primeNumberCheck(inputChannel)
 
 	// Now fan in and combine results
 	results := fanIn(c1, c2, c3, c4)
@@ -99,7 +91,4 @@ func main() {
 	for i := 0; i < len(data); i++ {
 		fmt.Printf("%d is prime: %v\n", data[i], <-results)
 	}
-
-	fmt.Printf("Search took: %v\n", time.Since(start))
-
 }
