@@ -4,16 +4,18 @@ import "fmt"
 
 func recoverName() {
 	if r := recover(); r != nil {
-		fmt.Println("recovered from ", r)
+		fmt.Println("recovered from", r)
 	}
 }
 
-func printName(firstName, lastName string) {
-	defer recoverName()
+/*
+PrintName will generate a Panic if first or last name is an empty string
+*/
+func PrintName(firstName, lastName string) {
 	if firstName == "" {
-		panic("runtime error: first name cannot be empty")
+		panic("error: first name cannot be empty")
 	} else if lastName == "" {
-		panic("runtime error: last name cannot be empty")
+		panic("error: last name cannot be empty")
 	} else {
 		fmt.Println(firstName, lastName)
 	}
@@ -21,8 +23,9 @@ func printName(firstName, lastName string) {
 
 func main() {
 	fmt.Println("Starting")
+	defer recoverName()
 
-	printName("", "Jones")
+	PrintName("", "Jones")
 
 	fmt.Println("Done")
 }
