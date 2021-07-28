@@ -6,17 +6,21 @@ import (
 	"time"
 )
 
+func setup() {
+	fmt.Println("setup only runs once")
+}
+
 func main() {
 	var once sync.Once
-	f1 := func() {
-		fmt.Println("Only once")
-	}
 
+	fmt.Println("Starting")
 	for i := 0; i < 5; i++ {
 		go func() {
-			fmt.Println("Calling f1")
-			once.Do(f1)
+			fmt.Println("Calling setup")
+			once.Do(setup) // Ensures some behaviour is only run once - ever!
 		}()
 	}
+
 	time.Sleep(time.Second)
+	fmt.Println("Done")
 }
