@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// Book structure
+// Book structure with 4 public fields
 type Book struct {
 	Title   string
 	Author  string
@@ -26,7 +26,7 @@ func main() {
 
 	/* book 2 specification */
 	book2.Title = "Python Introduction"
-	book2.Author = "Denise Jonesi"
+	book2.Author = "Denise Jones"
 	book2.Subject = "Python Tutorial"
 	book2.ISBN = 6495700
 	fmt.Printf("book3: %v\n", book2)
@@ -43,15 +43,23 @@ func main() {
 	fmt.Printf("Book 2 Subject : %s\n", book2.Subject)
 	fmt.Printf("Book 2 book_id : %d\n", book2.ISBN)
 
-	// Struct Literal
+	// Struct Literal - initialises new struct instance with defualt values
 	var book3 = Book{"JavaScript Uncovered", "Phoebe", "Technical", 1234}
 	fmt.Printf("book3: %v\n", book3)
 
-	// Pointers
+	var book4 = Book{Title: "Get Going",
+		Author:  "Jasmine Jones",
+		Subject: "Technical",
+		ISBN:    3232}
+	fmt.Printf("book4: %v\n", book4)
 
+	// Pointers
 	var structPointer *Book
-	structPointer = &book1
-	fmt.Println("structPointer.Title:", structPointer.Title)
+	structPointer = &book4
+	fmt.Printf("Book Pointer %v\n", structPointer)
+	fmt.Printf("Book Pointer dereferenced %v\n", *structPointer)
+	// Automatically de-references pointer when accessing fields
+	fmt.Printf("structPointer.Title: %v\n", structPointer.Title)
 
 	fmt.Println("Done")
 }
