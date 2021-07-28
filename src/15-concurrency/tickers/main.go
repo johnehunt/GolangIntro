@@ -24,7 +24,7 @@ func main() {
 		}
 	}()
 
-	time.Sleep(1600 * time.Millisecond)
+	time.Sleep(3 * time.Second)
 
 	// Tickers can be stopped.
 	// Once a ticker is stopped it won’t
