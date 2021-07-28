@@ -26,7 +26,7 @@ func main() {
 	fmt.Println("Book:", book)
 	data, err := json.Marshal(book)
 	if err != nil {
-		fmt.Println("Something went wrong!", err)
+		fmt.Println("Something went wrong converting to JSON!", err)
 	} else {
 		fmt.Printf("Data: %s\n", data)
 	}
@@ -35,14 +35,14 @@ func main() {
 
 	data, err = json.Marshal(books)
 	if err != nil {
-		fmt.Println("Something went wrong!", err)
+		fmt.Println("Something went wrong un marshalling from JSON!", err)
 	} else {
 		fmt.Printf("Data: %s\n", data)
 	}
 
-	// Unmarshal JSON
+	// Unmarshal JSON - populate slice with book data
 
-	var newbooks [2]Book
+	var newbooks []Book
 	err2 := json.Unmarshal(data, &newbooks)
 	if err2 != nil {
 		fmt.Println("Something went wrong!", err2)
