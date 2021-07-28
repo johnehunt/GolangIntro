@@ -14,8 +14,8 @@ func reader(mutex *sync.RWMutex, state map[int]int) {
 	for {
 		key := rand.Intn(5)
 		mutex.RLock() // Lock for reading
-		fmt.Println("Reading:", state[key])
-		mutex.RUnlock() // Unlock for reading
+		fmt.Printf("Reading key %d - %d\n", key, state[key])
+		mutex.RUnlock() // Unlock for reading (could use defer as safer)
 		time.Sleep(time.Millisecond)
 	}
 }
@@ -24,10 +24,11 @@ func reader(mutex *sync.RWMutex, state map[int]int) {
 func writer(mutex *sync.RWMutex, state map[int]int) {
 	for {
 		key := rand.Intn(5)
-		val := rand.Intn(100)
+		value := rand.Intn(100)
 		mutex.Lock() // Lock for writing
-		state[key] = val
-		mutex.Unlock() // Unlock for writing
+		fmt.Printf("Writing key %d - %d\n", key, value)
+		state[key] = value
+		mutex.Unlock() // Unlock for writing (could use defer as safer)
 		// Wait a bit between writes.
 		time.Sleep(time.Millisecond)
 	}
@@ -42,6 +43,7 @@ func main() {
 		go reader(mutex, state)
 	}
 
+	// Start 10 writer goroutines
 	for w := 0; w < 10; w++ {
 		go writer(mutex, state)
 	}
@@ -50,7 +52,7 @@ func main() {
 	time.Sleep(time.Second)
 
 	// Grab the lock to show the state
-	mutex.Lock()
+	mutex.RLock()
 	fmt.Println("state:", state)
-	mutex.Unlock()
+	mutex.RUnlock()
 }
