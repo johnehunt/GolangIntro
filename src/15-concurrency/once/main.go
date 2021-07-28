@@ -11,6 +11,7 @@ func setup() {
 }
 
 func main() {
+	// Create the once instance
 	var once sync.Once
 
 	fmt.Println("Starting")
@@ -24,3 +25,16 @@ func main() {
 	time.Sleep(time.Second)
 	fmt.Println("Done")
 }
+
+/*
+Sample Output
+=============
+Starting
+Calling setup
+Calling setup
+Calling setup
+setup only runs once
+Calling setup
+Calling setup
+Done
+*/
