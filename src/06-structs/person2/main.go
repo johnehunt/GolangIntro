@@ -8,11 +8,17 @@ type Person struct {
 	Age  int
 }
 
+/*
+Recieves a copy of a Person instance
+*/
 func printPerson(person Person) {
 	fmt.Println(person)
 	fmt.Println(person.Name)
 }
 
+/*
+Takes a reference to a person instance
+*/
 func printPerson2(person *Person) {
 	fmt.Println(*person)
 	// person pointer is automatically de referenced
