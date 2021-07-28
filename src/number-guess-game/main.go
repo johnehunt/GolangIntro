@@ -36,7 +36,7 @@ func getIntInput(prompt string) int {
 func getUserName() string {
 	var name string
 	fmt.Print("Please enter your name: ")
-	fmt.Scanf("%s", &name)
+	fmt.Scan(&name)
 	return name
 }
 
@@ -44,7 +44,7 @@ func getYesOrNoInput(prompt string) string {
 	var input string
 	for {
 		fmt.Print(prompt)
-		fmt.Scanf("%s", &input)
+		fmt.Scan(&input)
 		input = strings.ToLower(input)
 		if input == YES || input == NO {
 			break
