@@ -5,6 +5,7 @@ import "fmt"
 // Person struct has fields Name and Age
 // Public structs have an initial capital letter
 // and a comment
+// Any fields starting with a capital letter are public
 type Person struct {
 	Name string
 	Age  int
