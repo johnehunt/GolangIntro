@@ -49,7 +49,7 @@ func getYesOrNoInput(prompt string) string {
 		if input == YES || input == NO {
 			break
 		} else {
-			fmt.Printf("Error - Input must be %s or %s, please try again")
+			fmt.Printf("Error - Input must be %s or %s, please try again", YES, NO)
 		}
 	}
 	return input
