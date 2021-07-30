@@ -3,12 +3,16 @@ package main
 import "fmt"
 
 func describe(v interface{}) {
+	fmt.Printf("%T\n", v)
 	// Check for type of data held in interface
+	// v.(type) can only be used win switch statement
 	switch v.(type) {
 	case int:
 		fmt.Println("Its an int:", v.(int))
 	case string:
 		fmt.Println("Its an string:", v.(string))
+	case *interface{}:
+		fmt.Println("Its an pointer to a value:", v)
 	case float64:
 		fmt.Println("Its an float64:", v.(float64))
 	case bool:
@@ -40,5 +44,8 @@ func main() {
 	fmt.Printf("v2.(string): value %f, ok %t\n", value, ok)
 
 	describe(v2)
+
+	// A pointer to a type also meets the empty interface contract
+	describe(&v2)
 
 }
