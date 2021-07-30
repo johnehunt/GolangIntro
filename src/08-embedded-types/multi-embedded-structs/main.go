@@ -14,7 +14,7 @@ type Degree struct {
 	Type string
 }
 
-// Student struct
+// Student struct with embedded Person and Degree structs
 type Student struct {
 	University string
 	Person
