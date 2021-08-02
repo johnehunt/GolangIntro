@@ -25,10 +25,15 @@ func main() {
 	e.Age = 21
 	fmt.Println("e:", e)
 
-	var e1 = Employee{Person: Person{"Denise", 21}, ID: "EMP123"}
+	var e1 = Employee{
+		Person: Person{"Denise", 21},
+		ID:     "EMP123", // Need a comma before a newline in a struct literal
+	}
 	fmt.Println("e1:", e1)
 
-	var e2 = Employee{Person{"Denise", 21}, "EMP123"}
+	var e2 = Employee{
+		Person{"Denise", 21},
+		"EMP123"}
 	fmt.Println("e2:", e2)
 
 	var e3 = Employee{ID: "EMP345"}
