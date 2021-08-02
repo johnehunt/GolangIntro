@@ -85,8 +85,9 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	// That is we creare an token form the claims
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
-	// Create the JWT string - do this by signing the token using a
-	// secure private key (jwtKey)
+	// Create the JWT token - do this by signing the token using a
+	// secure private key (jwtKey) it will create
+	// {header}.{payload}.{signature}
 	tokenString, err := token.SignedString(jwtKey)
 	if err != nil {
 		// If there is an error in creating the JWT return an internal server error
@@ -108,6 +109,11 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 
 func Welcome(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Starting Welcome function")
+
+	// -- -------------------------------------------
+	// Retrieve the JWT token form the cooke
+	// -- -------------------------------------------
+
 	// We can obtain the session token from the requests cookies, which come with every request
 	cookie, err := r.Cookie("token")
 	if err != nil {
@@ -130,8 +136,8 @@ func Welcome(w http.ResponseWriter, r *http.Request) {
 	claims := &Claims{}
 
 	// Parse the JWT token string and store the result in `claims`.
-	// This method will return an error
-	// if the token is invalid (if it has expired according to the expiry time we set on sign in),
+	// This method will return an error if the token is invalid (if it
+	// has expired according to the expiry time we set on sign in),
 	// or if the signature does not match
 	token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
 		return jwtKey, nil
@@ -152,6 +158,11 @@ func Welcome(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
+
+	// -- --------------------------------------
+	// If we made it this far all is ok
+	// -- --------------------------------------
+
 	// Finally, return the welcome message to the user, along with their
 	// username given in the token
 	w.Write([]byte(fmt.Sprintf("Welcome %s!", claims.Username)))
