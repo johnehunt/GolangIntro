@@ -8,7 +8,7 @@ import (
 func main() {
 	fmt.Println("Starting client app")
 
-	client.CallServer("test server", "127.0.0.1", "3333", "tcp")
+	client.CallServer("test server", "localhost", "3333", "tcp")
 
 	fmt.Println("Done")
 }
