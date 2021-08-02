@@ -10,19 +10,23 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-var jwtKey = []byte("my_secret_key")
+var jwtKey = []byte("my_secret_key") // only suitable for dev
+// In production make sure you use a real private key, preferably at least 256 bits in length
 
 var users = map[string]string{
 	"user1": "password1",
 	"user2": "password2",
 }
 
-// Create a struct that models the structure of a user,
+// Credentials a struct that models the structure of a user,
 type Credentials struct {
 	Password string `json:"password"`
 	Username string `json:"username"`
 }
 
+// CLaims a struct used to represent clsims to identify a user
+// The embedded struct jwt.StandardClaims struct contains useful
+// fields like expiry and issuer name
 type Claims struct {
 	Username string `json:"username"`
 	jwt.StandardClaims
@@ -32,6 +36,10 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Starting Signin function")
 	var credentials Credentials
 
+	// -- ------------------------------------------
+	// Get user credentials and authenticate them
+	// -- ------------------------------------------
+
 	// Get the JSON body and decode into credentials
 	err := json.NewDecoder(r.Body).Decode(&credentials)
 	if err != nil {
@@ -40,8 +48,10 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Get the expected password from our in memory map
+	// Look up stored password for user
+	// We are using an inmemory map but could use database etc.
 	expectedPassword, ok := users[credentials.Username]
+
 	// Check if user is known and has correct password
 	if !ok {
 		fmt.Printf("Error Unknown user: %s", credentials.Username)
@@ -54,6 +64,10 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// -- ------------------------------------------------------
+	// Now build the JWT token as we have authenticated the user
+	// -- ------------------------------------------------------
+
 	// Declare the expiration time of the token
 	// here, we have kept it as 5 minutes
 	expirationTime := time.Now().Add(5 * time.Minute)
@@ -63,12 +77,16 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		StandardClaims: jwt.StandardClaims{
 			// In JWT, the expiry time is expressed as unix milliseconds
 			ExpiresAt: expirationTime.Unix(),
+			Issuer:    "SampleJWTService",
 		},
 	}
 
 	// Declare the token with the algorithm used for signing, and the claims
+	// That is we creare an token form the claims
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	// Create the JWT string
+
+	// Create the JWT string - do this by signing the token using a
+	// secure private key (jwtKey)
 	tokenString, err := token.SignedString(jwtKey)
 	if err != nil {
 		// If there is an error in creating the JWT return an internal server error
