@@ -1,0 +1,25 @@
+1. You will need to load the jwt-go module, to do this use:
+
+go get -u github.com/golang-jwt/jwt
+
+2. Run the application
+go run main.go
+
+3. Try and access
+http://localhost:8000/welcome
+
+You should get 401 Unauthorized
+(Can use postman for this)
+
+4. Now post login details
+use
+post: http://localhost:8000/signin
+
+with Body selected
+Select raw and type is JSON
+{"username":"user1","password":"password1"}
+
+Should now get 200 OK
+
+5. Now try welcome url
+Should now see 200 OK andWelcome user1!
