@@ -28,7 +28,7 @@ func handleRequest(conn net.Conn) {
 		fmt.Println("Generating response")
 		conn.Write([]byte("Message received with "))
 		conn.Write(buffer)
-		conn.Write([]byte(" at" + currentTime.String() + "\n"))
+		conn.Write([]byte(" at " + currentTime.String() + "\n"))
 	}
 
 }
