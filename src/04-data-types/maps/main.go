@@ -7,8 +7,11 @@ import (
 func main() {
 	fmt.Println("Starting")
 
+	// Crates a variable that can hold a map but initiliaed to zeroth value - nil
 	var countryCapitalMap map[string]string
-	/* create a map*/
+	fmt.Println(countryCapitalMap)
+
+	/* instantiate a map */
 	countryCapitalMap = make(map[string]string)
 
 	/* insert key-value pairs in the map*/
