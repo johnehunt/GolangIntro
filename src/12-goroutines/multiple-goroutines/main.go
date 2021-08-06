@@ -21,7 +21,7 @@ func main() {
 	go worker("C", 8)
 	go worker("D", 5)
 
-	// Let goroutinmes run
+	// Let goroutines run
 	time.Sleep(time.Second)
 
 	fmt.Println("\nDone")
