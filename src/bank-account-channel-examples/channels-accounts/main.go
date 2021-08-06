@@ -49,14 +49,20 @@ func init() {
 func main() {
 	fmt.Println("Starting")
 
-	Deposit(200)
-	fmt.Printf("Balance after 200 deposit is %d\n", Balance())
+	go func() {
+		Deposit(200)
+		fmt.Printf("Balance after 200 deposit is %d\n", Balance())
+	}()
 
-	Withdraw(150)
-	fmt.Printf("Balance after 150 withdrawal is %d\n", Balance())
+	go func() {
+		Withdraw(150)
+		fmt.Printf("Balance after 150 withdrawal is %d\n", Balance())
+	}()
 
-	Deposit(100)
-	fmt.Printf("Balance after 100 deposit is %d\n", Balance())
+	go func() {
+		Deposit(100)
+		fmt.Printf("Balance after 100 deposit is %d\n", Balance())
+	}()
 
 	time.Sleep(2 * time.Second)
 	fmt.Printf("Final balance is %d\n", Balance())
