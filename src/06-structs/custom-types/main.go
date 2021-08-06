@@ -6,6 +6,9 @@ type ResponseCode int
 
 func main() {
 	Handle(200)
+
+	statusCode := ResponseCode(404)
+	Handle(statusCode)
 }
 
 func Handle(code ResponseCode) {
