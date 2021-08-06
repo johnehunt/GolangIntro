@@ -20,20 +20,26 @@ func worker(channel chan string) {
 	}
 }
 
+const MAX_GOROUTINES = 5
+
 func main() {
-	// Set up the channel
-	tasks := make(chan string, 5)
+	tasks := make(chan string)
 
 	fmt.Println("Start goroutines")
-	go worker(tasks)
+	for i := 0; i < MAX_GOROUTINES; i++ {
+		go worker(tasks)
+	}
+
 	tasks <- "Do Work1"
 	tasks <- "Do Work2"
+	tasks <- "Do Work3"
 
 	fmt.Println("Sleep for a bit")
-	time.Sleep(3 * time.Second)
-
+	time.Sleep(time.Second)
 	fmt.Println("Close task channel")
 	close(tasks)
+	fmt.Println("Sleep for a bit more")
+	time.Sleep(time.Second)
 
 	fmt.Println("Done")
 }

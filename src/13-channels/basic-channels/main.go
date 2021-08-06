@@ -16,7 +16,8 @@ func main() {
 		fmt.Println("Go routine - starting to sleep")
 		time.Sleep(2 * time.Second)
 		fmt.Println("Go routine - waking up")
-		// Send a value into a channel using the channel <- syntax
+		// Send a value into a channel using the send channel <- syntax
+		fmt.Println("Go routine - sending message")
 		messageChannel <- "Hello World"
 		fmt.Println("Go routine - completing")
 	}()
