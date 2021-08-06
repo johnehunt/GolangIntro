@@ -26,6 +26,7 @@ func main() {
 	server := &Server{}
 	// Set up a mapping from url to server
 	http.Handle("/api/", server)
+
 	fmt.Println("Server Available - see http://localhost:8080/api/")
 	// Listen and serve is a blocking call
 	err := http.ListenAndServe(":8080", nil)
