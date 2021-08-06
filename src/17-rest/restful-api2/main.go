@@ -5,9 +5,6 @@ import (
 	"net/http"
 )
 
-// Server Represents the server type
-type Server struct{}
-
 // Note this is a function not a method now
 func serve(resp http.ResponseWriter, req *http.Request) {
 	resp.Header().Set("Content-Type", "application/json")
