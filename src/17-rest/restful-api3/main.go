@@ -21,20 +21,20 @@ func serve(resp http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 	case "GET":
 		fmt.Println("processing GET Request")
-		// To get a url parameter
-		// e.g. http://localhost:8080/api/people/list?keys=hello
-		keys, ok := req.URL.Query()["key"]
+		// // To get a url parameter
+		// // e.g. http://localhost:8080/api/people/list?keys=hello
+		// keys, ok := req.URL.Query()["key"]
 
-		if !ok {
-			fmt.Println("Url Param 'key' is missing")
-			return
-		}
+		// if !ok {
+		// 	fmt.Println("Url Param 'key' is missing")
+		// 	return
+		// }
 
-		// Query()["key"] will return an array of items,
-		// we only want the single item.
-		key := keys[0]
+		// // Query()["key"] will return an array of items,
+		// // we only want the single item.
+		// key := keys[0]
 
-		fmt.Println("Url Param 'key' is: " + string(key))
+		// fmt.Println("Url Param 'key' is: " + string(key))
 
 		// Find path parameter
 		id := strings.TrimPrefix(req.URL.Path, "/api/people/")
