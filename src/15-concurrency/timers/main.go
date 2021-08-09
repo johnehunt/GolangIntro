@@ -13,7 +13,7 @@ func main() {
 	timer := time.NewTimer(2 * time.Second)
 
 	go func() {
-		// blocks on the timer’s channel C until it
+		// blocks on the timer’s channel C (for Channel) until it
 		// sends a value indicating that the timer fired
 		<-timer.C
 		fmt.Println("Timer fired")
