@@ -59,6 +59,18 @@ func main() {
 		fmt.Println("Weekend")
 	}
 
+	var a = 2
+	var b = 2
+
+	switch a {
+	case b:
+		fmt.Println("A same as b")
+	case 1:
+		fmt.Println("A is one")
+	default:
+		fmt.Println("Its something else")
+	}
+
 	fmt.Println("Done")
 
 }
