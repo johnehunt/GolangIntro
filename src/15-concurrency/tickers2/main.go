@@ -5,6 +5,13 @@ import (
 	"time"
 )
 
+func worker(ticker *time.Ticker) {
+	for {
+		t := <-ticker.C
+		fmt.Println("Tick at", t)
+	}
+}
+
 func main() {
 	fmt.Println("Starting")
 
@@ -12,12 +19,7 @@ func main() {
 	// repeatedly at regular intervals
 	ticker := time.NewTicker(500 * time.Millisecond)
 
-	go func() {
-		for {
-			t := <-ticker.C
-			fmt.Println("Tick at", t)
-		}
-	}()
+	go worker(ticker)
 
 	time.Sleep(3 * time.Second)
 
