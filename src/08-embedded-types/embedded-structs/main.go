@@ -17,7 +17,7 @@ type Employee struct {
 }
 
 func main() {
-	e := new(Employee)
+	e := Employee{}
 	e.ID = "EMP987"
 	// Long hand reference
 	e.Person.Name = "John"
