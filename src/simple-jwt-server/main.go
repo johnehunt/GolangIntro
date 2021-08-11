@@ -82,7 +82,7 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Declare the token with the algorithm used for signing, and the claims
-	// That is we creare an token form the claims
+	// That is where we create a token from the claims
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
 	// Create the JWT token - do this by signing the token using a
