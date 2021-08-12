@@ -19,7 +19,7 @@ var people = []Person{{Name: "John", Age: 57}}
 func serve(resp http.ResponseWriter, req *http.Request) {
 	resp.Header().Set("Content-Type", "application/json")
 	switch req.Method {
-	case "GET":
+	case http.MethodGet:
 		fmt.Println("processing GET Request")
 		// // To get a url parameter
 		// // e.g. http://localhost:8080/api/people/list?keys=hello
@@ -65,7 +65,7 @@ func serve(resp http.ResponseWriter, req *http.Request) {
 				resp.Write(jsonData)
 			}
 		}
-	case "POST":
+	case http.MethodPost:
 		fmt.Println("processing POST Request")
 		// Check the content header is appropriate
 		contentheader := req.Header.Get("Content-Type")
@@ -98,10 +98,10 @@ func serve(resp http.ResponseWriter, req *http.Request) {
 		people = append(people, p)
 		resp.WriteHeader(http.StatusCreated)
 		fmt.Fprintf(resp, "Person: created")
-	case "PUT":
+	case http.MethodPut:
 		resp.WriteHeader(http.StatusAccepted)
 		resp.Write([]byte(`{"message": "put called"}`))
-	case "DELETE":
+	case http.MethodDelete:
 		resp.WriteHeader(http.StatusOK)
 		resp.Write([]byte(`{"message": "delete called"}`))
 	default:

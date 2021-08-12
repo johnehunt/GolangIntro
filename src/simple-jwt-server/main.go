@@ -34,6 +34,7 @@ var jwtKey = []byte("my_secret_key") // only suitable for dev
 
 func Signin(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Starting Signin function")
+	fmt.Println(r.Method)
 	var credentials Credentials
 
 	// -- ------------------------------------------
