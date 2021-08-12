@@ -1,22 +1,23 @@
-package calc
+package calc_test
 
 import (
+	"calc"
 	"fmt"
 	"testing"
 )
 
 // TestCalcAddOneAndOne checks addition
 func TestCalcAddOneAndOne(t *testing.T) {
-	v, err := Calculator("+", 1, 1)
+	v, err := calc.Calculator(calc.ADD, 1, 1)
 	if v != 2 || err != nil {
-		t.Error("Expected 2, got ", v)
+		t.Errorf("Expected 2, got %s", v)
 	}
 }
 
 // Benchmark test
 func BenchmarkCalc1000DividedBy3(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		v, err := Calculator("/", 1000, 3)
+		v, err := calc.Calculator(calc.DIV, 1000, 3)
 		if v != 333 || err != nil {
 			b.Error("Expected 333, got ", v)
 		}
@@ -46,7 +47,7 @@ func TestCalcParametricTest(t *testing.T) {
 	}
 
 	for _, data := range tests {
-		v, err := Calculator(data.operation, data.xvalue, data.yvalue)
+		v, err := calc.Calculator(data.operation, data.xvalue, data.yvalue)
 		if v != data.result || err != nil {
 			t.Error("Expected", data.result, ", got ", v)
 		}
@@ -55,28 +56,40 @@ func TestCalcParametricTest(t *testing.T) {
 
 // Example function test
 func ExampleCalculator() {
-	r, _ := Calculator("+", 1, 1)
+	r, _ := calc.Calculator(calc.ADD, 1, 1)
 	fmt.Println("Calculator('+', 1, 1):", r)
 	// Output: Calculator('+', 1, 1): 2
+}
+
+func ExampleDivide() {
+	result, err := calc.Calculator(calc.ADD, 5, 2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+	}
+
+	// Output:
+	// 7
 }
 
 // Subtests
 func TestCalculatorPlusOperations(t *testing.T) {
 	// <setup code>
 	t.Run("AddZeroAndZero", func(t *testing.T) {
-		v, err := Calculator("+", 0, 0)
+		v, err := calc.Calculator(calc.ADD, 0, 0)
 		if v != 0 || err != nil {
 			t.Error("Expected 0, got ", v)
 		}
 	})
 	t.Run("AddOneAndOne", func(t *testing.T) {
-		v, err := Calculator("+", 1, 1)
+		v, err := calc.Calculator(calc.ADD, 1, 1)
 		if v != 2 || err != nil {
 			t.Error("Expected 2, got ", v)
 		}
 	})
 	t.Run("AddOneAndMinusOne", func(t *testing.T) {
-		v, err := Calculator("+", 1, -1)
+		v, err := calc.Calculator(calc.ADD, 1, -1)
 		if v != 0 || err != nil {
 			t.Error("Expected 0, got ", v)
 		}
@@ -86,7 +99,9 @@ func TestCalculatorPlusOperations(t *testing.T) {
 
 // Main test with start up and shut down behaviour
 func TestMain(m *testing.M) {
+	// Do any start up
 	fmt.Println("Setup behaviour")
 	m.Run()
+	// Do any shutdown behaviour
 	fmt.Println("Shutdown behaviour")
 }

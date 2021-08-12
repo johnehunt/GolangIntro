@@ -1,3 +1,3 @@
-module 16-testing
+module calc
 
 go 1.16
