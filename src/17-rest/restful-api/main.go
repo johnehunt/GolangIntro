@@ -9,24 +9,24 @@ import (
 type Server struct{}
 
 // ServerHTTP - implements the Handler interface
-func (s *Server) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
-	resp.Header().Set("Content-Type", "application/json")
-	switch req.Method {
-	case "GET":
-		resp.WriteHeader(http.StatusOK)
-		resp.Write([]byte(`{"message": "get called"}`))
-	case "POST":
-		resp.WriteHeader(http.StatusCreated)
-		resp.Write([]byte(`{"message": "post called"}`))
-	case "PUT":
-		resp.WriteHeader(http.StatusAccepted)
-		resp.Write([]byte(`{"message": "put called"}`))
-	case "DELETE":
-		resp.WriteHeader(http.StatusOK)
-		resp.Write([]byte(`{"message": "delete called"}`))
+func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	switch r.Method {
+	case http.MethodGet:
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message": "get called"}`))
+	case http.MethodPost:
+		w.WriteHeader(http.StatusCreated)
+		w.Write([]byte(`{"message": "post called"}`))
+	case http.MethodPut:
+		w.WriteHeader(http.StatusAccepted)
+		w.Write([]byte(`{"message": "put called"}`))
+	case http.MethodDelete:
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"message": "delete called"}`))
 	default:
-		resp.WriteHeader(http.StatusNotFound)
-		resp.Write([]byte(`{"message": "not found"}`))
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte(`{"message": "not found"}`))
 	}
 }
 
