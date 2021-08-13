@@ -84,7 +84,7 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 
 	// Declare the token with the algorithm used for signing, and the claims
 	// That is where we create a token from the claims
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
 
 	// Create the JWT token - do this by signing the token using a
 	// secure private key (jwtKey) it will create
@@ -180,6 +180,8 @@ func main() {
 
 	// Start the server on port 8000
 	fmt.Println("Starting Listen and Serve")
+	fmt.Println("\thttp://localhost:8000/signin")
+	fmt.Println("\thttp://localhost:8000/welcome")
 	err := http.ListenAndServe("localhost:8000", nil)
 	if err != nil {
 		fmt.Printf("Error starting server %v", err)
