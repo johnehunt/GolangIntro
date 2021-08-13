@@ -166,7 +166,7 @@ func Welcome(w http.ResponseWriter, r *http.Request) {
 
 	// Finally, return the welcome message to the user, along with their
 	// username given in the token
-	w.Write([]byte(fmt.Sprintf("Welcome %s!", claims.Username)))
+	w.Write([]byte(fmt.Sprintf("Welcome back %s!", claims.Username)))
 
 	fmt.Println("Finished Welcome function")
 }
